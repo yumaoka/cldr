@@ -2455,7 +2455,7 @@ This tends to work better in implementations that don't yet handle the -t- exten
 <td>en-t-<em><strong>hi-h0-hybrid</strong></em></td>
 <td>Latin</td>
 <td>Hinglish</td>
-<td>English-Hindi hybrid    where the script is Latin*</td>
+<td>English-Hindi hybrid	where the script is Latin*</td>
 </tr>
 <tr>
 <td>en-t-<em><strong>zh-h0-hybrid</strong></em></td>
@@ -2917,17 +2917,17 @@ lang_region (aliases to lang_script_region)
 <tr>                                                    <td>de_CH</td>              <td>collation type=B</td>           <td>not found</td></tr>
 <tr>                                                    <td>de</td>                 <td>collation type=B</td>           <td><i>found</i></td></tr>
 <tr><td rowspan="4">de<br><i>no keyword</i></td>       <td>de</td>                 <td>default collation type</td>     <td>not found</td></tr>
-<tr>                                                    <td>root</td>               <td>default collation type</td>        <td>finds "standard"</td></tr>
+<tr>                                                    <td>root</td>               <td>default collation type</td>	    <td>finds "standard"</td></tr>
 <tr>                                                    <td>de</td>                 <td>collation type=standard</td>    <td>not found</td></tr>
 <tr>                                                    <td>root</td>               <td>collation type=standard</td>    <td><i>found</i></td></tr>
 <tr><td>de_u_co_A</td>                                  <td>de</td>                 <td>collation type=A</td>           <td><i>found</i></td></tr>
-<tr><td rowspan="2">de_u_co_standard</td>                <td>de</td>                    <td>collation type=standard</td>    <td>not found</td></tr>
+<tr><td rowspan="2">de_u_co_standard</td>	            <td>de</td>	                <td>collation type=standard</td>    <td>not found</td></tr>
 <tr>                                                    <td>root</td>               <td>collation type=standard</td>    <td><i>found</i></td></tr>
-<tr><td rowspan="6">de_u_co_foobar</td>                    <td>de</td>                    <td>collation type=foobar</td>      <td>not found</td></tr>
+<tr><td rowspan="6">de_u_co_foobar</td>	                <td>de</td>	                <td>collation type=foobar</td>      <td>not found</td></tr>
 <tr>                                                    <td>root</td>               <td>collation type=foobar</td>      <td>not found, starts looking for default</td></tr>
-<tr>                                                    <td>de</td>                    <td>default collation type</td>     <td>not found</td></tr>
+<tr>                                                    <td>de</td>	                <td>default collation type</td>     <td>not found</td></tr>
 <tr>                                                    <td>root</td>               <td>default collation type</td>     <td>finds "standard"</td></tr>
-<tr>                                                    <td>de</td>                    <td>collation type=standard</td>    <td>not found</td></tr>
+<tr>                                                    <td>de</td>	                <td>collation type=standard</td>    <td>not found</td></tr>
 <tr>                                                    <td>root</td>               <td>collation type=standard</td>    <td><i>found</i></td></tr>
 </tbody></table><p>Examples of "search" collator lookup; 'de' has a language-specific version, but 'en' does not:</p><!-- HTML: rowspan --><table><thead>
 <tr><th>User Input</th>                                 <th>Lookup in Locale</th>   <th>For</th>                        <th>Comment</th></tr>
@@ -3013,15 +3013,15 @@ always be a value that exists in root. So you can not have the following in root
 <li>Replace any deprecated subtags with their canonical values using the <code>&lt;alias&gt;</code> data in supplemental metadata. Use the first value in the replacement list, if it exists. Language tag replacements may have multiple parts, such as "sh" ➞ "sr_Latn" or "mo" ➞ "ro_MD". In such a case, the original script and/or region are retained if there is one. Thus "sh_Arab_AQ" ➞ "sr_Arab_AQ", not "sr_Latn_AQ".</li>
 <li>If the tag is a legacy language tag (marked as “Type: grandfathered” in BCP 47; see <code>&lt;variable id="$grandfathered" type="choice"&gt;</code> in the supplemental data), then return it.</li>
 <li>Remove the script code 'Zzzz' and the region code 'ZZ' if they occur.</li>
-<li>Get the components of the cleaned-up source tag <em>(languages, scripts,</em> and <em>regions</em>), plus any variants and extensions.</li>
+<li>Get the components of the cleaned-up source tag <em>(language<sub>s</sub>, script<sub>s</sub>,</em> and <em>region<sub>s</sub></em>), plus any variants and extensions.</li>
 </ol>
 </li>
 <li><strong>Lookup.</strong> Look up each of the following in order, and stop on the first match:<ol>
-<li><em>languages_scripts_regions</em></li>
-<li><em>languages_regions</em></li>
-<li><em>languages_scripts</em></li>
-<li><strong>languages</strong></li>
-<li>und_<em>scripts</em></li>
+<li><em>language<sub>s</sub>_script<sub>s</sub>_region<sub>s</sub></em></li>
+<li><em>language<sub>s</sub>_region<sub>s</sub></em></li>
+<li><em>language<sub>s</sub>_script<sub>s</sub></em></li>
+<li><em>language<sub>s</sub></em></li>
+<li>und_<em>script<sub>s</sub></em></li>
 </ol>
 </li>
 <li><strong>Return</strong><ol>
@@ -3030,9 +3030,9 @@ always be a value that exists in root. So you can not have the following in root
 <li>the match for "und" (in APIs where a valid language tag is required).</li>
 </ol>
 </li>
-<li>Otherwise there is a match = <em>languagem_scriptm_regionm</em></li>
-<li>Let xr = xs if xs is not empty, and xm otherwise.</li>
-<li>Return the language tag composed of <em>languager _ scriptr _ regionr</em> + variants + extensions .</li>
+<li>Otherwise there is a match = <em>language<sub>m</sub>_script<sub>m</sub>_region<sub>m</sub></em></li>
+<li>Let x<sub>r</sub> = x<sub>s</sub> if x<sub>s</sub> is not empty, and x<sub>m</sub> otherwise.</li>
+<li>Return the language tag composed of <em>language<sub>r</sub>_script<sub>r</sub>_region<sub>r</sub></em> + variants + extensions.</li>
 </ol>
 </li>
 </ol><p>The lookup can be optimized. For example, if any of the tags in Step 2 are the same as previous ones in that list, they do not need to be tested.</p><p><em>Example1:</em></p><ul>
