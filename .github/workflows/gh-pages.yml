@@ -50,7 +50,7 @@ jobs:
       - name: Run Kbd Charts
         run: "cd docs/charts/keyboards && npm ci && npm run build"
       - name: Upload tr35.zip
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: tr35-spec
           path: tools/scripts/tr-archive/tr35.zip
